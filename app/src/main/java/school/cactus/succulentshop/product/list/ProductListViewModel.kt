@@ -13,6 +13,9 @@ class ProductListViewModel(private val repository: ProductListRepository) : Base
     private val _products = MutableLiveData<List<ProductItem>>()
     val products: LiveData<List<ProductItem>> = _products
 
+    private val _progressBarVisibility = MutableLiveData<Boolean>()
+    val progressBarVisibility: LiveData<Boolean> = _progressBarVisibility
+
     val itemClickListener: (ProductItem) -> Unit = {
         val action = ProductListFragmentDirections.openProductDetail(it.id)
         navigation.navigate(action)
@@ -20,12 +23,14 @@ class ProductListViewModel(private val repository: ProductListRepository) : Base
 
     init {
         fetchProducts()
+        _progressBarVisibility.value = true
     }
 
     private fun fetchProducts(): Unit = repository.fetchProducts(
         object : ProductListRepository.FetchProductsRequestCallback {
             override fun onSuccess(products: List<ProductItem>) {
                 _products.value = products
+                _progressBarVisibility.value = false
             }
 
             override fun onTokenExpired() {
@@ -66,4 +71,6 @@ class ProductListViewModel(private val repository: ProductListRepository) : Base
         val directions = ProductListFragmentDirections.tokenExpired()
         navigation.navigate(directions)
     }
+
+
 }

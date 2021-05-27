@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputLayout
 import school.cactus.succulentshop.product.ProductItem
+import school.cactus.succulentshop.product.detail.relatedproducts.RelatedProductAdapter
+import school.cactus.succulentshop.product.detail.relatedproducts.RelatedProductDecoration
 import school.cactus.succulentshop.product.list.ProductAdapter
 import school.cactus.succulentshop.product.list.ProductDecoration
 
@@ -17,6 +19,7 @@ fun TextInputLayout.error(@StringRes errorMessage: Int?) {
 }
 
 val productAdapter = ProductAdapter()
+val relatedProductAdapter = RelatedProductAdapter()
 
 @BindingAdapter("app:products", "app:itemClickListener")
 fun RecyclerView.products(products: List<ProductItem>?, itemClickListener: (ProductItem) -> Unit) {
@@ -30,6 +33,23 @@ fun RecyclerView.products(products: List<ProductItem>?, itemClickListener: (Prod
 
     productAdapter.submitList(products.orEmpty())
 }
+
+@BindingAdapter("app:relatedProducts", "app:itemClickListener")
+fun RecyclerView.relatedProducts(
+    products: List<ProductItem>?,
+    itemClickListener: (ProductItem) -> Unit
+) {
+    adapter = relatedProductAdapter
+
+    relatedProductAdapter.itemClickListener = itemClickListener
+
+    if (itemDecorationCount == 0) {
+        addItemDecoration(RelatedProductDecoration())
+    }
+
+    relatedProductAdapter.submitList(products.orEmpty())
+}
+
 
 @BindingAdapter("app:imageUrl")
 fun ImageView.imageUrl(imageUrl: String?) {

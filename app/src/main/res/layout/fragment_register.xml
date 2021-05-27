@@ -4,33 +4,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="viewModel"
-            type="school.cactus.succulentshop.login.LoginViewModel" />
+            type="school.cactus.succulentshop.register.RegisterViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_height="match_parent"
         android:padding="16dp"
         tools:viewBindingIgnore="true">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/identifierInputLayout"
+            android:id="@+id/emailInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="@string/email_or_username"
-            app:error="@{viewModel.identifierErrorMessage}">
+            android:hint="@string/email"
+            app:error="@{viewModel.emailErrorMessage}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:text="@={viewModel.identifier}" />
+                android:text="@={viewModel.email}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/username"
+            app:error="@{viewModel.usernameErrorMessage}">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:text="@={viewModel.username}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,21 +72,21 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/logInButton"
+            android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginBottom="8dp"
-            android:onClick="@{() -> viewModel.onLoginButtonClick()}"
-            android:text="@string/log_in" />
+            android:onClick="@{() -> viewModel.onRegisterButtonClick()}"
+            android:text="@string/sign_up" />
 
         <Button
-            android:id="@+id/createAccountButton"
+            android:id="@+id/alreadyHaveAccountButton"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:onClick="@{() -> viewModel.onRegisterButtonClick()}"
-            android:text="@string/create_an_account" />
-
+            android:onClick="@{() -> viewModel.onAlreadyHaveAccountButtonClick()}"
+            android:text="@string/already_have_account"
+            android:textColor="#00796B" />
 
         <ProgressBar
             android:id="@+id/progressBarLogin"
@@ -75,6 +94,6 @@
             android:layout_width="match_parent"
             android:layout_height="39dp"
             android:visibility="@{viewModel.progressBarVisibility ? View.VISIBLE : View.GONE }" />
-
     </LinearLayout>
 </layout>
+

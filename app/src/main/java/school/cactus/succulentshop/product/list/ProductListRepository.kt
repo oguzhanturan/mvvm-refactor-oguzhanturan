@@ -5,6 +5,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import school.cactus.succulentshop.api.api
 import school.cactus.succulentshop.api.product.Product
+import school.cactus.succulentshop.infra.util.RequestCallBack
 import school.cactus.succulentshop.product.ProductItem
 import school.cactus.succulentshop.product.toProductItemList
 
@@ -25,10 +26,7 @@ class ProductListRepository {
         })
     }
 
-    interface FetchProductsRequestCallback {
+    interface FetchProductsRequestCallback : RequestCallBack {
         fun onSuccess(products: List<ProductItem>)
-        fun onTokenExpired()
-        fun onUnexpectedError()
-        fun onFailure()
     }
 }

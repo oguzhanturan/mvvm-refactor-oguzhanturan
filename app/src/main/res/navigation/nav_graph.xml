@@ -12,6 +12,9 @@
             android:id="@+id/loginSuccessful"
             app:destination="@id/productListFragment"
             app:popUpTo="@id/nav_graph" />
+        <action
+            android:id="@+id/action_loginFragment_to_signupFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
 
     <fragment
@@ -31,10 +34,30 @@
             android:name="productId"
             android:defaultValue="-1"
             app:argType="integer" />
+        <action
+            android:id="@+id/openProductDetailFragmentSelf"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_productDetailFragment_to_productListFragment2"
+            app:destination="@id/productListFragment" />
     </fragment>
 
     <action
         android:id="@+id/tokenExpired"
         app:destination="@id/loginFragment"
         app:popUpTo="@id/nav_graph" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="school.cactus.succulentshop.register.RegisterFragment"
+        android:label="RegisterFragment">
+        <action
+            android:id="@+id/registerSuccessful"
+            app:destination="@id/productListFragment"
+            app:popUpTo="@id/nav_graph" />
+
+        <action
+            android:id="@+id/haveAccount"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
 </navigation>
