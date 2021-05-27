@@ -20,8 +20,8 @@ class ProductDetailFragment : BaseFragment() {
     override val viewModel: ProductDetailViewModel by viewModels {
         ProductDetailViewModelFactory(args.productId, ProductDetailRepository())
     }
-
     override fun onCreateView(
+
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?

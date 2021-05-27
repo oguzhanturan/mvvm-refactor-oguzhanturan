@@ -36,7 +36,7 @@ class RegisterFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireActivity().title = getString(R.string.log_in)
+        requireActivity().title = getString(R.string.sign_up)
     }
 
     override fun onDestroyView() {
