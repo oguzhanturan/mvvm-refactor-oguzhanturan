@@ -11,7 +11,7 @@
     <string name="retry">Retry</string>
     <string name="unexpected_error_occurred">Unexpected error occurred</string>
     <string name="your_session_is_expired">Your session is expired. Please log in.</string>
-    <string name="email_invanlid">Email is invalid.</string>
+    <string name="email_invalid">Email is invalid.</string>
     <string name="password_must_contains">Password must contain one digit, one uppercase letter, one lowercase letter and one special character.</string>
     <string name="username_must_contains">must not consist characters except: a–z, 0-9 and _</string>
     <string name="email">Email</string>
