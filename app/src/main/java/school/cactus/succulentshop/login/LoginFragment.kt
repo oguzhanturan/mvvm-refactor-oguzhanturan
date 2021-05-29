@@ -44,5 +44,4 @@ class LoginFragment : BaseFragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

@@ -101,5 +101,4 @@ class LoginViewModel(
         _passwordErrorMessage.value = passwordValidator.validate(password.value.orEmpty())
         return _passwordErrorMessage.value == null
     }
-
 }
