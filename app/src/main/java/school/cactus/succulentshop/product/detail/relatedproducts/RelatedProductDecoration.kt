@@ -3,7 +3,6 @@ package school.cactus.succulentshop.product.detail.relatedproducts
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import school.cactus.succulentshop.R
 
 class RelatedProductDecoration : RecyclerView.ItemDecoration() {
@@ -16,23 +15,7 @@ class RelatedProductDecoration : RecyclerView.ItemDecoration() {
     ) {
         val spacing =
             view.context.resources.getDimensionPixelSize(R.dimen.item_product_list_spacing)
-        val position = parent.getChildAdapterPosition(view)
-        val spanIndex = (view.layoutParams as StaggeredGridLayoutManager.LayoutParams).spanIndex
 
-        val isAtRight = spanIndex == 1
-        val isAtFirstLine = position < 2
-
-        if (isAtRight) {
-            outRect.left = spacing / 2
-            outRect.right = spacing
-        } else {
-            outRect.left = spacing
-            outRect.right = spacing / 2
-        }
-        outRect.bottom = spacing
-
-        if (isAtFirstLine) {
-            outRect.top = spacing
-        }
+        outRect.right = spacing
     }
 }
