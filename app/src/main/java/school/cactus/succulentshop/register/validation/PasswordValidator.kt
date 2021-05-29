@@ -7,8 +7,8 @@ import java.util.regex.Pattern
 class PasswordValidator : Validator {
     override fun validate(field: String) = when {
         field.isEmpty() -> R.string.this_field_is_required
-        field.trim().length < 7 -> R.string.this_field_is_required //2 den küçük olamaz
-        field.trim().length > 40 -> R.string.this_field_is_required //20 den büyük olamaz
+        field.trim().length < 7 -> R.string.this_field_is_required
+        field.trim().length > 40 -> R.string.this_field_is_required
         !isValidPasswordFormat(field.trim()) -> R.string.password_must_contains //password validator
         else -> null
     }

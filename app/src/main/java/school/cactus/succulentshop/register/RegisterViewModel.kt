@@ -9,8 +9,8 @@ import school.cactus.succulentshop.auth.JwtStore
 import school.cactus.succulentshop.infra.BaseViewModel
 import school.cactus.succulentshop.infra.snackbar.SnackbarAction
 import school.cactus.succulentshop.infra.snackbar.SnackbarState
-import school.cactus.succulentshop.login.validation.PasswordValidator
 import school.cactus.succulentshop.register.validation.EmailValidator
+import school.cactus.succulentshop.register.validation.PasswordValidator
 import school.cactus.succulentshop.register.validation.UsernameValidator
 
 class RegisterViewModel(
